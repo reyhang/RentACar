@@ -1,0 +1,102 @@
+﻿@model IEnumerable<RentACar.Models.User>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<div class="col-md-12">
+    <div class="card">
+        <div class="card-header">
+            <p>
+                <a asp-action="Create">Create New</a>
+            </p>
+        </div>
+        <div class="card-body">
+            <div class="table-responsive" style="overflow:hidden;">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>
+                                @Html.DisplayNameFor(model => model.Nationalid)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.Firstname)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.Lastname)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.Birthplace)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.Birthyear)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.Address)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.Card)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.Contact)
+                            </th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Nationalid)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Firstname)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Lastname)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Birthplace)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Birthyear)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Address.Id)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Card.Cardnumber)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Contact.Id)
+                                </td>
+                                <td>
+                                    <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                                    <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                                    <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="~/../assets/js/core/jquery.min.js"></script>
+<script src="~/../assets/js/core/popper.min.js"></script>
+<script src="~/../assets/js/core/bootstrap.min.js"></script>
+<script src="~/../assets/js/plugins/perfect-scrollbar.jquery.min.js"></script>
+<!--  Google Maps Plugin    -->
+<script src="https://maps.googleapis.com/maps/api/js?key=YOUR_KEY_HERE"></script>
+<!-- Chart JS -->
+<script src="~/../assets/js/plugins/chartjs.min.js"></script>
+<!--  Notifications Plugin    -->
+<script src="~/../assets/js/plugins/bootstrap-notify.js"></script>
+<!-- Control Center for Now Ui Dashboard: parallax effects, scripts for the example pages etc -->
+<script src="~/../assets/js/paper-dashboard.min.js?v=2.0.1" type="text/javascript"></script><!-- Paper Dashboard DEMO methods, don't include it in your project! -->
+<script src="~/../assets/demo/demo.js"></script>

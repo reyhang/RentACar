@@ -1,0 +1,42 @@
+﻿@model RentACar.Models.Card
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+
+
+<h1 style="text-align:center">Details</h1>
+
+<div class="col-md-12">
+    <div class="card">
+        <div class="card-body">
+            <div class="table-responsive" style="overflow:hidden;">
+                <table class="table">
+                    <tr>
+                        <th> @Html.DisplayNameFor(model => model.Userfirstname) </th>
+                        <th> @Html.DisplayNameFor(model => model.Userlastname)</th>
+                        <th> @Html.DisplayNameFor(model => model.Cardnumber)</th>
+                        <th> @Html.DisplayNameFor(model => model.Cardmonth)</th>
+                        <th> @Html.DisplayNameFor(model => model.Caryear)</th>
+                        <th> @Html.DisplayFor(model => model.Cvv)</th>
+
+                    </tr>
+                    <tr>
+                        <td>@Html.DisplayFor(model => model.Userfirstname) </td>
+                        <td>@Html.DisplayFor(model => model.Userlastname) </td>
+                        <td>@Html.DisplayFor(model => model.Cardnumber) </td>
+                        <td>@Html.DisplayFor(model => model.Cardmonth) </td>
+                        <td>@Html.DisplayFor(model => model.Caryear) </td>
+                        <td>@Html.DisplayFor(model => model.Cvv) </td>
+                    </tr>
+
+                </table>
+                <div style="text-align:right">
+                    <a asp-action="Edit" asp-route-id="@Model.Id">Edit</a> |
+                    <a asp-action="Index">Back to List</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
