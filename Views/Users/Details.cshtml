@@ -4,63 +4,41 @@
     ViewData["Title"] = "Details";
 }
 
-<h1>Details</h1>
+<h1 style="text-align:center">Details</h1>
 
-<div>
-    <h4>User</h4>
-    <hr />
-    <dl class="row">
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Nationalid)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Nationalid)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Firstname)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Firstname)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Lastname)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Lastname)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Birthplace)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Birthplace)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Birthyear)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Birthyear)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Address)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Address.Id)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Card)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Card.Cardnumber)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Contact)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Contact.Id)
-        </dd>
-    </dl>
-</div>
-<div>
-    <a asp-action="Edit" asp-route-id="@Model.Id">Edit</a> |
-    <a asp-action="Index">Back to List</a>
+<div class="col-md-12">
+    <div class="card">
+        <div class="card-body">
+            <div class="table-responsive" style="overflow:hidden;">
+                <table class="table">
+                    <tr>
+                        <th> @Html.DisplayNameFor(model => model.Nationalid) </th>
+                        <th> @Html.DisplayNameFor(model => model.Firstname)</th>
+                        <th> @Html.DisplayNameFor(model => model.Lastname)</th>
+                        <th> @Html.DisplayNameFor(model => model.Birthplace)</th>
+                        <th> @Html.DisplayNameFor(model => model.Birthyear)</th>
+                        <th> @Html.DisplayNameFor(model => model.Address)</th>
+                        <th> @Html.DisplayNameFor(model => model.Card)</th>
+                        <th> @Html.DisplayNameFor(model => model.Contact)</th>
+
+                    </tr>
+                    <tr>
+                        <td>@Html.DisplayFor(model => model.Nationalid) </td>
+                        <td>@Html.DisplayFor(model => model.Firstname) </td>
+                        <td>@Html.DisplayFor(model => model.Lastname) </td>
+                        <td>@Html.DisplayFor(model => model.Birthplace) </td>
+                        <td>@Html.DisplayFor(model => model.Birthyear) </td>
+                        <td>@Html.DisplayFor(model => model.Address.Id) </td>
+                        <td>@Html.DisplayFor(model => model.Card.Cardnumber) </td>
+                        <td>@Html.DisplayFor(model => model.Contact.Id) </td>
+                    </tr>
+
+                </table>
+                <div style="text-align:right">
+                    <a asp-action="Edit" asp-route-id="@Model.Id">Edit</a> |
+                    <a asp-action="Index">Back to List</a>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>

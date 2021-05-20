@@ -4,51 +4,36 @@
     ViewData["Title"] = "Details";
 }
 
-<h1>Details</h1>
+<h1 style="text-align:center">Details</h1>
 
-<div>
-    <h4>Rental</h4>
-    <hr />
-    <dl class="row">
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Rentdate)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Rentdate)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Returndate)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Returndate)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Totalprice)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Totalprice)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Delivery)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Delivery)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Car)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Car.Status)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.User)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.User.Birthplace)
-        </dd>
-    </dl>
-</div>
-<div>
-    <a asp-action="Edit" asp-route-id="@Model.Id">Edit</a> |
-    <a asp-action="Index">Back to List</a>
+<div class="col-md-12">
+    <div class="card">
+        <div class="card-body">
+            <div class="table-responsive" style="overflow:hidden;">
+                <table class="table">
+                    <tr>
+                        <th> @Html.DisplayNameFor(model => model.Rentdate) </th>
+                        <th> @Html.DisplayNameFor(model => model.Returndate)</th>
+                        <th> @Html.DisplayNameFor(model => model.Totalprice)</th>
+                        <th> @Html.DisplayNameFor(model => model.Delivery)</th>
+                        <th> @Html.DisplayNameFor(model => model.Car)</th>
+                        <th> @Html.DisplayNameFor(model => model.User)</th>
+                    </tr>
+                    <tr>
+                        <td>@Html.DisplayFor(model => model.Rentdate) </td>
+                        <td>@Html.DisplayFor(model => model.Returndate) </td>
+                        <td>@Html.DisplayFor(model => model.Totalprice) </td>
+                        <td>@Html.DisplayFor(model => model.Delivery) </td>
+                        <td>@Html.DisplayFor(model => model.Car.Status) </td>
+                        <td>@Html.DisplayFor(model => model.User.Birthplace) </td>
+                    </tr>
+
+                </table>
+                <div style="text-align:right">
+                    <a asp-action="Edit" asp-route-id="@Model.Id">Edit</a> |
+                    <a asp-action="Index">Back to List</a>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
