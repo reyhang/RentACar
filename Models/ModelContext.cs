@@ -458,5 +458,7 @@ namespace RentACar.Models
         partial void OnModelCreatingPartial(ModelBuilder modelBuilder);
 
         public DbSet<RentACar.Models.ErrorViewModel> ErrorViewModel { get; set; }
+
+        
     }
 }
