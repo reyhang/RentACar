@@ -9,10 +9,8 @@ namespace RentACar.Models
 {
     public partial class Rental
     {
-
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-
         public decimal Id { get; set; }
         public decimal Userid { get; set; }
         public decimal Carid { get; set; }

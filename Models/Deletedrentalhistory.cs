@@ -1,14 +1,16 @@
 ﻿using System;
 using System.Collections.Generic;
-
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 #nullable disable
 
 namespace RentACar.Models
-
-{ 
+{
     public partial class Deletedrentalhistory
     {
+        [Key]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public decimal Id { get; set; }
         public decimal Userid { get; set; }
         public decimal Carid { get; set; }
@@ -20,5 +22,3 @@ namespace RentACar.Models
         public virtual User User { get; set; }
     }
 }
-
-

@@ -9,22 +9,22 @@ using RentACar.Models;
 
 namespace RentACar.Controllers
 {
-    public class ErrorViewModelsController : Controller
+    public class AdmİnController : Controller
     {
         private readonly ModelContext _context;
 
-        public ErrorViewModelsController(ModelContext context)
+        public AdmİnController(ModelContext context)
         {
             _context = context;
         }
 
-        // GET: ErrorViewModels
+        // GET: Admİn
         public async Task<IActionResult> Index()
         {
-            return View(await _context.ErrorViewModel.ToListAsync());
+            return View(await _context.Admİns.ToListAsync());
         }
 
-        // GET: ErrorViewModels/Details/5
+        // GET: Admİn/Details/5
         public async Task<IActionResult> Details(string id)
         {
             if (id == null)
@@ -32,39 +32,39 @@ namespace RentACar.Controllers
                 return NotFound();
             }
 
-            var errorViewModel = await _context.ErrorViewModel
-                .FirstOrDefaultAsync(m => m.RequestId == id);
-            if (errorViewModel == null)
+            var admİn = await _context.Admİns
+                .FirstOrDefaultAsync(m => m.Name == id);
+            if (admİn == null)
             {
                 return NotFound();
             }
 
-            return View(errorViewModel);
+            return View(admİn);
         }
 
-        // GET: ErrorViewModels/Create
+        // GET: Admİn/Create
         public IActionResult Create()
         {
             return View();
         }
 
-        // POST: ErrorViewModels/Create
+        // POST: Admİn/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("RequestId")] ErrorViewModel errorViewModel)
+        public async Task<IActionResult> Create([Bind("Name,Surname,Emaİl,Password,Id")] Admİn admİn)
         {
             if (ModelState.IsValid)
             {
-                _context.Add(errorViewModel);
+                _context.Add(admİn);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            return View(errorViewModel);
+            return View(admİn);
         }
 
-        // GET: ErrorViewModels/Edit/5
+        // GET: Admİn/Edit/5
         public async Task<IActionResult> Edit(string id)
         {
             if (id == null)
@@ -72,22 +72,22 @@ namespace RentACar.Controllers
                 return NotFound();
             }
 
-            var errorViewModel = await _context.ErrorViewModel.FindAsync(id);
-            if (errorViewModel == null)
+            var admİn = await _context.Admİns.FindAsync(id);
+            if (admİn == null)
             {
                 return NotFound();
             }
-            return View(errorViewModel);
+            return View(admİn);
         }
 
-        // POST: ErrorViewModels/Edit/5
+        // POST: Admİn/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(string id, [Bind("RequestId")] ErrorViewModel errorViewModel)
+        public async Task<IActionResult> Edit(string id, [Bind("Name,Surname,Emaİl,Password,Id")] Admİn admİn)
         {
-            if (id != errorViewModel.RequestId)
+            if (id != admİn.Name)
             {
                 return NotFound();
             }
@@ -96,12 +96,12 @@ namespace RentACar.Controllers
             {
                 try
                 {
-                    _context.Update(errorViewModel);
+                    _context.Update(admİn);
                     await _context.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!ErrorViewModelExists(errorViewModel.RequestId))
+                    if (!AdmİnExists(admİn.Name))
                     {
                         return NotFound();
                     }
@@ -112,10 +112,10 @@ namespace RentACar.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            return View(errorViewModel);
+            return View(admİn);
         }
 
-        // GET: ErrorViewModels/Delete/5
+        // GET: Admİn/Delete/5
         public async Task<IActionResult> Delete(string id)
         {
             if (id == null)
@@ -123,30 +123,30 @@ namespace RentACar.Controllers
                 return NotFound();
             }
 
-            var errorViewModel = await _context.ErrorViewModel
-                .FirstOrDefaultAsync(m => m.RequestId == id);
-            if (errorViewModel == null)
+            var admİn = await _context.Admİns
+                .FirstOrDefaultAsync(m => m.Name == id);
+            if (admİn == null)
             {
                 return NotFound();
             }
 
-            return View(errorViewModel);
+            return View(admİn);
         }
 
-        // POST: ErrorViewModels/Delete/5
+        // POST: Admİn/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(string id)
         {
-            var errorViewModel = await _context.ErrorViewModel.FindAsync(id);
-            _context.ErrorViewModel.Remove(errorViewModel);
+            var admİn = await _context.Admİns.FindAsync(id);
+            _context.Admİns.Remove(admİn);
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
-        private bool ErrorViewModelExists(string id)
+        private bool AdmİnExists(string id)
         {
-            return _context.ErrorViewModel.Any(e => e.RequestId == id);
+            return _context.Admİns.Any(e => e.Name == id);
         }
     }
 }

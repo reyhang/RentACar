@@ -13,10 +13,8 @@ namespace RentACar.Models
         {
             Users = new HashSet<User>();
         }
-
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-
         public decimal Id { get; set; }
         public string City { get; set; }
         public string District { get; set; }

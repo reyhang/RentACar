@@ -16,7 +16,6 @@ namespace RentACar.Models
 
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-
         public decimal Id { get; set; }
         public string Phone { get; set; }
         public string Email { get; set; }

@@ -6,13 +6,11 @@ using System.ComponentModel.DataAnnotations.Schema;
 #nullable disable
 
 namespace RentACar.Models
-{ 
+{
     public partial class Rentalhistory
     {
-
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-
         public decimal Id { get; set; }
         public decimal Userid { get; set; }
         public decimal Carid { get; set; }

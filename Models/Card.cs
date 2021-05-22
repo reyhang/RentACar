@@ -13,7 +13,7 @@ namespace RentACar.Models
         {
             Users = new HashSet<User>();
         }
-
+       
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
 

@@ -15,10 +15,8 @@ namespace RentACar.Models
             Rentalhistories = new HashSet<Rentalhistory>();
             Rentals = new HashSet<Rental>();
         }
-
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-
         public decimal Id { get; set; }
         public decimal Brandid { get; set; }
         public decimal Modelid { get; set; }

@@ -7,19 +7,14 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace RentACar.Models
 {
-    public partial class Brand
+    public partial class Admİn
     {
-        public Brand()
-        {
-            Cars = new HashSet<Car>();
-            Models = new HashSet<Model>();
-        }
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        public string Name { get; set; }
+        public string Surname { get; set; }
+        public string Emaİl { get; set; }
+        public string Password { get; set; }
         public decimal Id { get; set; }
-        public string Brandname { get; set; }
-
-        public virtual ICollection<Car> Cars { get; set; }
-        public virtual ICollection<Model> Models { get; set; }
     }
 }
