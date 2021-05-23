@@ -14,8 +14,10 @@ namespace RentACar.Models
             Cars = new HashSet<Car>();
             Models = new HashSet<Model>();
         }
+
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+
         public decimal Id { get; set; }
         public string Brandname { get; set; }
 

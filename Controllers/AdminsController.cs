@@ -9,85 +9,85 @@ using RentACar.Models;
 
 namespace RentACar.Controllers
 {
-    public class AdmİnController : Controller
+    public class AdminsController : Controller
     {
         private readonly ModelContext _context;
 
-        public AdmİnController(ModelContext context)
+        public AdminsController(ModelContext context)
         {
             _context = context;
         }
 
-        // GET: Admİn
+        // GET: Admins
         public async Task<IActionResult> Index()
         {
-            return View(await _context.Admİns.ToListAsync());
+            return View(await _context.Admins.ToListAsync());
         }
 
-        // GET: Admİn/Details/5
-        public async Task<IActionResult> Details(string id)
+        // GET: Admins/Details/5
+        public async Task<IActionResult> Details(decimal? id)
         {
             if (id == null)
             {
                 return NotFound();
             }
 
-            var admİn = await _context.Admİns
-                .FirstOrDefaultAsync(m => m.Name == id);
-            if (admİn == null)
+            var admin = await _context.Admins
+                .FirstOrDefaultAsync(m => m.Id == id);
+            if (admin == null)
             {
                 return NotFound();
             }
 
-            return View(admİn);
+            return View(admin);
         }
 
-        // GET: Admİn/Create
+        // GET: Admins/Create
         public IActionResult Create()
         {
             return View();
         }
 
-        // POST: Admİn/Create
+        // POST: Admins/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Name,Surname,Emaİl,Password,Id")] Admİn admİn)
+        public async Task<IActionResult> Create([Bind("Id,Name,Surname,Email,Password")] Admin admin)
         {
             if (ModelState.IsValid)
             {
-                _context.Add(admİn);
+                _context.Add(admin);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            return View(admİn);
+            return View(admin);
         }
 
-        // GET: Admİn/Edit/5
-        public async Task<IActionResult> Edit(string id)
+        // GET: Admins/Edit/5
+        public async Task<IActionResult> Edit(decimal? id)
         {
             if (id == null)
             {
                 return NotFound();
             }
 
-            var admİn = await _context.Admİns.FindAsync(id);
-            if (admİn == null)
+            var admin = await _context.Admins.FindAsync(id);
+            if (admin == null)
             {
                 return NotFound();
             }
-            return View(admİn);
+            return View(admin);
         }
 
-        // POST: Admİn/Edit/5
+        // POST: Admins/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(string id, [Bind("Name,Surname,Emaİl,Password,Id")] Admİn admİn)
+        public async Task<IActionResult> Edit(decimal id, [Bind("Id,Name,Surname,Email,Password")] Admin admin)
         {
-            if (id != admİn.Name)
+            if (id != admin.Id)
             {
                 return NotFound();
             }
@@ -96,12 +96,12 @@ namespace RentACar.Controllers
             {
                 try
                 {
-                    _context.Update(admİn);
+                    _context.Update(admin);
                     await _context.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!AdmİnExists(admİn.Name))
+                    if (!AdminExists(admin.Id))
                     {
                         return NotFound();
                     }
@@ -112,41 +112,41 @@ namespace RentACar.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            return View(admİn);
+            return View(admin);
         }
 
-        // GET: Admİn/Delete/5
-        public async Task<IActionResult> Delete(string id)
+        // GET: Admins/Delete/5
+        public async Task<IActionResult> Delete(decimal? id)
         {
             if (id == null)
             {
                 return NotFound();
             }
 
-            var admİn = await _context.Admİns
-                .FirstOrDefaultAsync(m => m.Name == id);
-            if (admİn == null)
+            var admin = await _context.Admins
+                .FirstOrDefaultAsync(m => m.Id == id);
+            if (admin == null)
             {
                 return NotFound();
             }
 
-            return View(admİn);
+            return View(admin);
         }
 
-        // POST: Admİn/Delete/5
+        // POST: Admins/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> DeleteConfirmed(string id)
+        public async Task<IActionResult> DeleteConfirmed(decimal id)
         {
-            var admİn = await _context.Admİns.FindAsync(id);
-            _context.Admİns.Remove(admİn);
+            var admin = await _context.Admins.FindAsync(id);
+            _context.Admins.Remove(admin);
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
-        private bool AdmİnExists(string id)
+        private bool AdminExists(decimal id)
         {
-            return _context.Admİns.Any(e => e.Name == id);
+            return _context.Admins.Any(e => e.Id == id);
         }
     }
 }

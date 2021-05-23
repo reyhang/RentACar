@@ -1,6 +1,8 @@
 ﻿using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 #nullable disable
 
@@ -17,8 +19,11 @@ namespace RentACar.Models
         {
         }
 
+        [Key]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+
         public virtual DbSet<Address> Addresses { get; set; }
-        public virtual DbSet<Admİn> Admİns { get; set; }
+        public virtual DbSet<Admin> Admins { get; set; }
         public virtual DbSet<Brand> Brands { get; set; }
         public virtual DbSet<Car> Cars { get; set; }
         public virtual DbSet<Card> Cards { get; set; }
@@ -29,13 +34,12 @@ namespace RentACar.Models
         public virtual DbSet<Rental> Rentals { get; set; }
         public virtual DbSet<Rentalhistory> Rentalhistories { get; set; }
         public virtual DbSet<User> Users { get; set; }
-        public object ErrorViewModel { get; internal set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             if (!optionsBuilder.IsConfigured)
             {
-#warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see http://go.microsoft.com/fwlink/?LinkId=723263.
+//#warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see http://go.microsoft.com/fwlink/?LinkId=723263.
                 optionsBuilder.UseOracle("Data Source=(DESCRIPTION=(ADDRESS_LIST=(ADDRESS=(PROTOCOL=TCP)(HOST=localhost)(PORT=1521)))(CONNECT_DATA=(SERVER=DEDICATED)(SERVICE_NAME=XEPDB1))); Persist Security Info=True; User ID=SYSTEM;Password=1234; Persist Security Info=True;");
             }
         }
@@ -64,35 +68,33 @@ namespace RentACar.Models
                     .HasColumnName("DISTRICT");
             });
 
-            modelBuilder.Entity<Admİn>(entity =>
+            modelBuilder.Entity<Admin>(entity =>
             {
-                entity.ToTable("ADMİN");
+                entity.ToTable("ADMIN");
 
                 entity.Property(e => e.Id)
                     .HasColumnType("NUMBER")
-                    .HasColumnName("ID");
+                    .ValueGeneratedOnAdd()
+                    .HasColumnName("ID")
+                    .HasDefaultValueSql("\"SYSTEM\".\"ISEQ$$_74201\".nextval ");
 
-                entity.Property(e => e.Emaİl)
-                    .IsRequired()
+                entity.Property(e => e.Email)
                     .HasMaxLength(20)
                     .IsUnicode(false)
-                    .HasColumnName("EMAİL");
+                    .HasColumnName("EMAIL");
 
                 entity.Property(e => e.Name)
-                    .IsRequired()
-                    .HasMaxLength(30)
+                    .HasMaxLength(20)
                     .IsUnicode(false)
                     .HasColumnName("NAME");
 
                 entity.Property(e => e.Password)
-                    .IsRequired()
                     .HasMaxLength(20)
                     .IsUnicode(false)
                     .HasColumnName("PASSWORD");
 
                 entity.Property(e => e.Surname)
-                    .IsRequired()
-                    .HasMaxLength(30)
+                    .HasMaxLength(20)
                     .IsUnicode(false)
                     .HasColumnName("SURNAME");
             });
@@ -466,6 +468,8 @@ namespace RentACar.Models
                     .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("FK_CONTACTID");
             });
+
+            modelBuilder.HasSequence("ADMİN_SEQ");
 
             modelBuilder.HasSequence("LOGMNR_DIDS$");
 

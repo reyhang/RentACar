@@ -11,6 +11,7 @@ namespace RentACar.Models
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+
         public decimal Id { get; set; }
         public decimal Userid { get; set; }
         public decimal Carid { get; set; }
