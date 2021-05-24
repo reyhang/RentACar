@@ -5,10 +5,12 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
+using RentACar.Filter;
 using RentACar.Models;
 
 namespace RentACar.Controllers
 {
+   
     public class BrandsController : Controller
     {
         private readonly ModelContext _context;

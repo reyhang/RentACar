@@ -2,13 +2,16 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
+using RentACar.Filter;
 using RentACar.Models;
 
 namespace RentACar.Controllers
 {
+   
     public class AddressesController : Controller
     {
         private readonly ModelContext _context;
@@ -20,7 +23,12 @@ namespace RentACar.Controllers
 
         // GET: Addresses
         public async Task<IActionResult> Index()
+
         {
+            if (HttpContext.Session.GetInt32("id").HasValue)
+            {
+                return Redirect("Index");
+            }
             return View(await _context.Addresses.ToListAsync());
         }
 

@@ -1,4 +1,6 @@
-﻿@using Microsoft.AspNetCore.Http
+﻿@model RentACar.Models.Admin
+
+@using Microsoft.AspNetCore.Http
 
 @{
     Layout = null;
@@ -43,32 +45,35 @@
     <nav class="navbar navbar-expand-lg navbar-absolute fixed-top navbar-transparent">
         <div class="container-fluid">
             <div class="navbar-wrapper">
-                <div class="navbar-toggle">
-                    <button type="button" class="navbar-toggler">
-                        <span class="navbar-toggler-bar bar1"></span>
-                        <span class="navbar-toggler-bar bar2"></span>
-                        <span class="navbar-toggler-bar bar3"></span>
-                    </button>
-                </div>
-                <div class="text-center">
-                    <h1 class="display-4"> Welcome </h1>
-                </div>
-            </div>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-bar navbar-kebab"></span>
-                <span class="navbar-toggler-bar navbar-kebab"></span>
-                <span class="navbar-toggler-bar navbar-kebab"></span>
-            </button>
-            <div class="collapse navbar-collapse justify-content-end" id="navigation">
-                <blockquote>
-                    <i class="nc-icon nc-single-02"> </i>
-                    <a href="/Admins/Login">Login Account</a>
-                </blockquote>
             </div>
         </div>
     </nav>
-   
 
+    <div class="col-md-6">
+        <div class="card card-user">
+            <div class="card-header">
+                <h5 class="card-title">Login</h5>
+            </div>
+            <div class="card-body">
+                <form action="/Admins/Index" method="post" style="overflow:hidden;">
+                   
+                    <div class="form-group">
+                        <p class="formLabel">Email</p>
+                        <input class="form" name="Email" type="email" />
+
+                    </div>
+                    <div class="form-group">
+                        <p class="formLabel">Password</p>
+                        <input class="form" name="Password" type="password" />
+                    </div>
+                    <div class="form-group">
+                        <input type="submit" value="Login" class="btn btn-primary" asp-action="Index" />
+                        <input type="submit" value="Sign Up" class="btn btn-primary" asp-action="SignUp" />
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
 
 
     <script src="~/lib/jquery/dist/jquery.min.js"></script>

@@ -21,7 +21,7 @@
 
     <style>
         .s {
-            background-color: #eee; 
+            background-color: #eee;
             overflow-y: scroll; /* Add the ability to scroll */
         }
 
@@ -34,109 +34,108 @@
 </head>
 
 <body class="s">
-    
-        <div class="wrapper">
-            <div class="sidebar" data-color="white" data-active-color="danger"  >
-                <div class="logo">
 
-                    <a class="nav-link text-dark" asp-area="" asp-controller="Login" asp-action="Index">
-                        Login
+    <div class="wrapper">
+        <div class="sidebar" data-color="white" data-active-color="danger">
+            <div class="logo">
 
-                    </a>
-                </div>
-                <div class="sidebar-wrapper" >
-                    <ul class="nav">
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index"><p>Home</p></a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Addresses" asp-action="Index"><p>Addresses</p></a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Brands" asp-action="Index"><p>Brands</p></a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Cards" asp-action="Index">Cards</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Cars" asp-action="Index">Cars</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Colors" asp-action="Index">Colors</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Contacts" asp-action="Index">Contacts</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Deletedrentalhistories" asp-action="Index">Deleted Rental Histories</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Models" asp-action="Index">Models</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Rentalhistories" asp-action="Index">Rental Histories</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Rentals" asp-action="Index">Rentals</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Users" asp-action="Index">Users</a>
-                        </li>
-
-                    </ul>
-                </div>
+                <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">
+                    Log Out
+                </a>
             </div>
+            <div class="sidebar-wrapper">
+                <ul class="nav">
+                    <li class="nav-item">
+                        <a class="nav-link text-dark" asp-area="" asp-controller="About" asp-action="Index"><p>About</p></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-dark" asp-area="" asp-controller="Addresses" asp-action="Index"><p>Addresses</p></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-dark" asp-area="" asp-controller="Brands" asp-action="Index"><p>Brands</p></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-dark" asp-area="" asp-controller="Cards" asp-action="Index">Cards</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-dark" asp-area="" asp-controller="Cars" asp-action="Index">Cars</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-dark" asp-area="" asp-controller="Colors" asp-action="Index">Colors</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-dark" asp-area="" asp-controller="Contacts" asp-action="Index">Contacts</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-dark" asp-area="" asp-controller="Deletedrentalhistories" asp-action="Index">Deleted Rental Histories</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-dark" asp-area="" asp-controller="Models" asp-action="Index">Models</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-dark" asp-area="" asp-controller="Rentalhistories" asp-action="Index">Rental Histories</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-dark" asp-area="" asp-controller="Rentals" asp-action="Index">Rentals</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-dark" asp-area="" asp-controller="Users" asp-action="Index">Users</a>
+                    </li>
 
-            <div class="main-panel" style="height:175vh;">
-                <main role="main" class="pb-3">
-                    @RenderBody()
-                </main>
+                </ul>
             </div>
-
-            <nav class="navbar navbar-expand-lg navbar-absolute fixed-top navbar-transparent">
-                <div class="container-fluid">
-                    <div class="navbar-wrapper">
-                        <div class="navbar-toggle">
-                            <button type="button" class="navbar-toggler">
-                                <span class="navbar-toggler-bar bar1"></span>
-                                <span class="navbar-toggler-bar bar2"></span>
-                                <span class="navbar-toggler-bar bar3"></span>
-                            </button>
-                        </div>
-                        <a class="navbar-brand" href="javascript:;">Title</a>
-                    </div>
-                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
-                        <span class="navbar-toggler-bar navbar-kebab"></span>
-                        <span class="navbar-toggler-bar navbar-kebab"></span>
-                        <span class="navbar-toggler-bar navbar-kebab"></span>
-                    </button>
-
-                </div>
-            </nav>
-            <!-- End Navbar -->
-
-            <footer class="footer" style="position:fixed; bottom: 0; width:-webkit-fill-available;">
-                <div class="container-fluid">
-
-                    <div class="credits ml-auto">
-                        <span class="copyright">
-                            © 2021 Rent A Car
-                        </span>
-                    </div>
-                </div>
-
-            </footer>
         </div>
-   
+
+        <div class="main-panel" style="height:175vh;">
+            <main role="main" class="pb-3">
+                @RenderBody()
+            </main>
+        </div>
+
+        <nav class="navbar navbar-expand-lg navbar-absolute fixed-top navbar-transparent">
+            <div class="container-fluid">
+                <div class="navbar-wrapper">
+                    <div class="navbar-toggle">
+                        <button type="button" class="navbar-toggler">
+                            <span class="navbar-toggler-bar bar1"></span>
+                            <span class="navbar-toggler-bar bar2"></span>
+                            <span class="navbar-toggler-bar bar3"></span>
+                        </button>
+                    </div>
+                    <a class="navbar-brand" href="javascript:;">Title</a>
+                </div>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-bar navbar-kebab"></span>
+                    <span class="navbar-toggler-bar navbar-kebab"></span>
+                    <span class="navbar-toggler-bar navbar-kebab"></span>
+                </button>
+
+            </div>
+        </nav>
+        <!-- End Navbar -->
+
+        <footer class="footer" style="position:fixed; bottom: 0; width:-webkit-fill-available;">
+            <div class="container-fluid">
+
+                <div class="credits ml-auto">
+                    <span class="copyright">
+                        © 2021 Rent A Car
+                    </span>
+                </div>
+            </div>
+
+        </footer>
+    </div>
+
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
     @RenderSection("Scripts", required: false)
     <!--   Core JS Files   -->
-    <script src="~/../assets/js/core/jquery.min.js" asp-append-version = "true"></script>
-    <script src="~/../assets/js/core/popper.min.js" asp-append-version = "true"></script>
-    <script src="~/../assets/js/core/bootstrap.min.js" asp-append-version = "true"></script>
-    <script src="~/../assets/js/plugins/perfect-scrollbar.jquery.min.js" asp-append-version = "true"></script>
+    <script src="~/../assets/js/core/jquery.min.js" asp-append-version="true"></script>
+    <script src="~/../assets/js/core/popper.min.js" asp-append-version="true"></script>
+    <script src="~/../assets/js/core/bootstrap.min.js" asp-append-version="true"></script>
+    <script src="~/../assets/js/plugins/perfect-scrollbar.jquery.min.js" asp-append-version="true"></script>
     <!--  Google Maps Plugin    -->
     <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_KEY_HERE"></script>
     <!-- Chart JS -->
@@ -145,6 +144,6 @@
     <script src="~/../assets/js/plugins/bootstrap-notify.js"></script>
     <!-- Control Center for Now Ui Dashboard: parallax effects, scripts for the example pages etc -->
     <script src="~/../assets/js/paper-dashboard.min.js?v=2.0.1" type="text/javascript"></script>
-  
+
 </body>
 </html>
